@@ -1,20 +1,26 @@
-# 🚀 Cool — Python Experiments & Visual Projects
+# 🚀 Cool — Creative Coding Projects with Python, JavaScript & Visual Experiments
 
-Bienvenido a **Cool**, un repositorio donde Python deja de ser “solo backend” y empieza a verse como magia visual.
-Este proyecto reúne experimentos creativos, animaciones, simulaciones y efectos que parecen sacados de TikTok, reels o edits cyberpunk de las 3 AM.
+Bienvenido a **Cool**, un repositorio donde el código deja de ser aburrido y empieza a verse como algo salido de TikTok, reels futuristas o edits cyberpunk de madrugada.
 
-Desde partículas dinámicas hasta interfaces futuristas, glitches, visualizadores de audio, IA visual y automatizaciones raras que nadie pidió pero todos quieren probar.
+Aquí encontrarás proyectos creativos hechos principalmente en **Python**, pero también experimentos visuales y web usando **JavaScript, HTML y CSS**.
+
+Animaciones, simulaciones, interfaces futuristas, visualizadores, efectos raros y proyectos que probablemente empezaron como:
+
+> “¿Y si intento esto por curiosidad?”
+
+y terminaron convirtiéndose en algo absurdamente genial.
 
 ---
 
 ## ✨ ¿Qué encontrarás aquí?
 
 * 🎆 Animaciones hipnóticas
-* 🧠 Experimentos con IA y visión artificial
 * 🌌 Efectos visuales estilo sci-fi/cyberpunk
+* 🧠 Experimentos con IA y visión artificial
 * 🎵 Visualizadores de música
-* 🖥️ Interfaces minimalistas y futuristas
-* 📷 Proyectos virales inspirados en TikTok/Reels
+* 🖥️ Interfaces modernas y futuristas
+* 🌐 Proyectos web interactivos
+* 📷 Ideas inspiradas en TikTok/Reels
 * 🎮 Mini proyectos interactivos
 * ⚡ Scripts inútilmente épicos
 
@@ -22,38 +28,46 @@ Desde partículas dinámicas hasta interfaces futuristas, glitches, visualizador
 
 ## 🛠️ Tecnologías usadas
 
+### Backend & Visual
+
 * Python
 * OpenCV
 * Pygame
-* Tkinter
-* NumPy
 * MediaPipe
+* NumPy
 * PyQt
 * Pillow
-* y cualquier librería rara encontrada a las 2 AM en GitHub ☠️
+
+### Web & UI
+
+* JavaScript
+* HTML5
+* CSS3
+
+Y probablemente alguna librería encontrada a las 2 AM mientras todo se rompía misteriosamente ☠️
 
 ---
 
 ## 📂 Filosofía del proyecto
 
-**Cool** no busca ser perfecto.
-Busca verse increíble.
+**Cool** no intenta ser corporativo.
+Intenta ser interesante.
 
-La idea es experimentar, romper cosas, crear efectos visuales interesantes y aprender programación haciendo proyectos que realmente den ganas de abrir otra vez el editor de código.
+La idea es experimentar, crear cosas visualmente llamativas y aprender programación haciendo proyectos que den ganas de seguir construyendo.
 
-Porque seamos honestos:
+Porque sinceramente:
 
-```python id="6r0s1z"
+```python id="m95m3z"
 print("Hello World")
 ```
 
-ya no emociona a nadie 🚬
+ya no activa dopamina suficiente 🚬
 
 ---
 
 ## ⚡ Instalación
 
-```bash id="5w0p6l"
+```bash id="w5ypvs"
 git clone https://github.com/tuusuario/cool.git
 cd cool
 pip install -r requirements.txt
@@ -63,9 +77,19 @@ pip install -r requirements.txt
 
 ## ▶️ Ejecutar proyectos
 
-```bash id="xqgxsu"
-python nombre_del_proyecto.py
+Python:
+
+```bash id="z7w02x"
+python proyecto.py
 ```
+
+Web:
+
+```bash id="yv8s9r"
+abrir index.html
+```
+
+o usar Live Server en VS Code.
 
 ---
 
@@ -75,9 +99,10 @@ Crear proyectos que:
 
 * se vean visualmente brutales,
 * enseñen programación de forma divertida,
+* mezclen creatividad y tecnología,
 * y hagan pensar:
 
-> “¿Python puede hacer ESO?”
+> “¿Cómo demonios hicieron eso?”
 
 ---
 
@@ -85,23 +110,23 @@ Crear proyectos que:
 
 Internet raro.
 TikTok.
-Videos cyberpunk.
 Interfaces futuristas.
-Música nocturna.
+Videos synthwave.
+Animaciones fluidas.
 Cafeína.
-Errores de compilación.
+Errores que desaparecen solos.
 Y decisiones cuestionables después de medianoche.
 
 ---
 
 ## 🤝 Contribuciones
 
-Si tienes ideas absurdamente buenas o proyectos visualmente cursed:
+Si tienes ideas interesantes, proyectos cursed o efectos visuales locos:
 haz fork, experimenta y súbelo.
 
 ---
 
-## 🖤 Cool
+# 🖤 Cool
 
 > Código que probablemente no necesitabas…
 > pero ahora quieres ejecutar.
