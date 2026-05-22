@@ -1,4 +1,3 @@
-````markdown
 # ASCII Video Player 🎬🍿
 
 ¡Bienvenido al proyecto **ASCII Video Player**! Esta aplicación en Python es capaz de capturar videos locales o descargarlos directamente desde internet (YouTube/TikTok) para transformarlos en **arte ASCII en tiempo real**.
@@ -29,58 +28,93 @@ videoTerminal/
 
 Contiene el prototipo inicial del proyecto (`videoTerminal.py`). Es un script único y lineal diseñado exclusivamente para reproducir videos locales de manera rústica directamente desde la consola de comandos. No cuenta con interfaz gráfica ni soporte avanzado para enlaces de internet.
 
+---
+
 ### 2. `conGUI/` (Recomendado)
 
 Esta es la **versión definitiva y profesional**. El código fue rediseñado bajo el principio de **Separación de Responsabilidades**, dividiéndose en dos archivos interconectados:
 
-- **`video_processor.py`**  
-  Contiene toda la lógica pesada. Se encarga de descargar videos usando `yt-dlp` (corregido para ignorar listas de reproducción infinitas que traban el programa) y procesa los fotogramas píxel por píxel con OpenCV sin recortar los bordes de la imagen.
+#### 📌 `video_processor.py`
 
-- **`main_gui.py`**  
-  Es la aplicación principal que debes ejecutar. Despliega una ventana moderna en modo oscuro usando `CustomTkinter`, con controles interactivos.
+Contiene toda la lógica pesada. Se encarga de:
 
-### ⭐ Característica Especial de la Versión Final
+- Descargar videos usando `yt-dlp`
+- Ignorar automáticamente playlists infinitas o enlaces tipo *Mix*
+- Procesar fotogramas píxel por píxel usando OpenCV
+- Convertir video en arte ASCII sin recortar bordes
+
+#### 📌 `main_gui.py`
+
+Es la aplicación principal que debes ejecutar. Proporciona:
+
+- Interfaz moderna en modo oscuro
+- Controles interactivos
+- Selector de resolución
+- Selector de salida de reproducción
+- Integración total con el procesador de video
+
+---
+
+## ⭐ Característica Especial de la Versión Final
 
 A través del menú desplegable de la interfaz, puedes elegir dinámicamente el **Destino del Video**:
 
-1. **Interfaz Gráfica:**  
-   El video se dibuja fluidamente dentro de la misma ventana de la aplicación.
+### 🖥️ Interfaz Gráfica
 
-2. **Consola de Comandos:**  
-   La ventana de la app entra en espera y el video se reproduce directamente en tu terminal (VS Code / PowerShell) a máxima velocidad.
+El video se dibuja fluidamente dentro de la misma ventana de la aplicación.
+
+### 💻 Consola de Comandos
+
+La ventana gráfica entra en espera y el video se reproduce directamente en tu terminal (VS Code / PowerShell) a máxima velocidad.
 
 ---
 
 ## 🚀 Requisitos e Instalación
 
-Para ejecutar la versión final necesitas tener **Python 3.10 o superior** instalado.
+Para ejecutar la versión final necesitas tener instalado:
 
-Abre tu terminal e instala las librerías necesarias con el siguiente comando:
+- Python 3.10 o superior
+- Pip actualizado
+
+Instala las librerías necesarias ejecutando:
 
 ```bash
 pip install opencv-python customtkinter yt-dlp
 ```
 
-> **Nota de solución de problemas (PATH):**  
-> Si tienes múltiples versiones de Python instaladas y el sistema no detecta los módulos, utiliza el instalador apuntando directamente a tu ejecutable de Python. Por ejemplo:
->
-> ```powershell
-> & C:\Users\PC\AppData\Local\Microsoft\WindowsApps\python3.11.exe -m pip install customtkinter yt-dlp
-> ```
+---
+
+## ⚠️ Solución de Problemas (PATH de Python)
+
+Si tienes múltiples versiones de Python instaladas y el sistema no detecta correctamente los módulos, ejecuta el instalador apuntando directamente a tu versión de Python:
+
+```powershell
+& C:\Users\PC\AppData\Local\Microsoft\WindowsApps\python3.11.exe -m pip install customtkinter yt-dlp
+```
 
 ---
 
 ## 💻 Cómo Ejecutar el Programa
 
-1. Abre tu terminal o consola de comandos en la raíz del proyecto (`GeeDash`).
+### 1️⃣ Abrir la terminal en la raíz del proyecto
 
-2. Navega hasta la carpeta de la versión final:
+Ejemplo:
+
+```text
+GeeDash/
+```
+
+---
+
+### 2️⃣ Navegar hasta la carpeta de la interfaz gráfica
 
 ```bash
 cd cool/videoTerminal/conGUI
 ```
 
-3. Ejecuta el archivo de la interfaz gráfica usando Python 3.11:
+---
+
+### 3️⃣ Ejecutar el programa
 
 ```powershell
 & C:\Users\PC\AppData\Local\Microsoft\WindowsApps\python3.11.exe main_gui.py
@@ -90,25 +124,71 @@ cd cool/videoTerminal/conGUI
 
 ## ⚙️ Características Destacadas
 
-- **Descarga Web Inteligente:**  
-  Pega enlaces de YouTube o TikTok. El sistema filtrará automáticamente enlaces tipo *Mix* o *Playlist* para descargar únicamente el video seleccionado.
+### 🌐 Descarga Web Inteligente
 
-- **Carga Local:**  
-  Abre formatos comunes de video (`.mp4`, `.avi`, `.mkv`, `.mov`) almacenados en tu computadora.
+Pega enlaces de YouTube o TikTok. El sistema filtrará automáticamente playlists o enlaces tipo *Mix* para descargar únicamente el video seleccionado.
 
-- **Resolución Dinámica:**  
-  Usa el *slider* del panel izquierdo para aumentar o disminuir el ancho de caracteres del video en tiempo real.  
-  ¡A mayor resolución, mayor definición del arte ASCII!
+---
 
-- **Multihilo (Threading):**  
-  Las descargas y reproducciones se ejecutan en procesos independientes. La interfaz gráfica nunca se congelará ni mostrará el molesto mensaje de *“No responde”*.
+### 📁 Carga de Videos Locales
+
+Compatible con formatos comunes:
+
+- `.mp4`
+- `.avi`
+- `.mkv`
+- `.mov`
+
+---
+
+### 🎚️ Resolución Dinámica
+
+Usa el *slider* del panel izquierdo para aumentar o disminuir el ancho de caracteres del video en tiempo real.
+
+A mayor resolución:
+- Más definición
+- Más detalle
+- Más carga de procesamiento 😈
+
+---
+
+### ⚡ Multihilo (Threading)
+
+Las descargas y reproducciones se ejecutan en procesos independientes.
+
+Esto evita:
+- Congelamientos
+- Bloqueos de interfaz
+- El legendario mensaje:
+  > “La aplicación no responde”
 
 ---
 
 ## 📌 Estado del Proyecto
 
-El proyecto representa una evolución completa desde un prototipo experimental en consola hasta una aplicación modular con interfaz gráfica moderna, procesamiento optimizado y soporte híbrido entre GUI y terminal.
+El proyecto representa una evolución completa desde un prototipo experimental en consola hasta una aplicación modular moderna con:
+
+- Arquitectura limpia
+- Procesamiento optimizado
+- Interfaz gráfica avanzada
+- Reproducción híbrida GUI/Terminal
+- Descarga inteligente desde internet
 
 ---
-```
-````
+
+## 🧠 Tecnologías Utilizadas
+
+- Python
+- OpenCV
+- CustomTkinter
+- yt-dlp
+- Threading
+- PIL / Pillow
+
+---
+
+## 🎥 Resultado
+
+El programa transforma cualquier video en una experiencia visual retro estilo terminal cyberpunk usando caracteres ASCII renderizados en tiempo real.
+
+Porque ver videos normales está sobrevalorado.
