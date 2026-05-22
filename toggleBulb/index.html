@@ -9,17 +9,50 @@
 <body>
 
     <div class="toggle-scene">
+
+        <svg class="bulb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Vidrio del foco: forma A-type (pera) -->
+            <path class="bulb__glass" d="
+                M 50 13
+                C 72 13, 86 27, 86 46
+                C 86 63, 75 73, 62 77
+                L 60 84
+                L 40 84
+                L 38 77
+                C 25 73, 14 63, 14 46
+                C 14 27, 28 13, 50 13
+                Z
+            "/>
+
+            <!-- Reflejo suave en el vidrio -->
+            <ellipse class="bulb__shine" cx="34" cy="32" rx="7" ry="11"
+                     transform="rotate(-20 34 32)"/>
+
+            <!-- Soporte interno (filamento stem) -->
+            <line class="bulb__stem" x1="50" y1="60" x2="50" y2="77" stroke-width="1.5"/>
+            <!-- Filamento en W -->
+            <polyline class="bulb__filament"
+                      points="41,60 45,52 50,60 55,52 59,60"
+                      fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+            <!-- Base metálica: ligeramente más ancha abajo (forma cónica) -->
+            <path class="bulb__base" d="M 40 84 L 39 96 L 61 96 L 60 84 Z"/>
+
+            <!-- Líneas de rosca -->
+            <line class="bulb__thread" x1="40" y1="87" x2="60" y2="87"/>
+            <line class="bulb__thread" x1="39" y1="91" x2="61" y2="91"/>
+
+            <!-- Contacto inferior (tapa del fondo) -->
+            <rect class="bulb__contact" x="43" y="96" width="14" height="4" rx="2"/>
+        </svg>
+
+        <!-- Cuerda del interruptor -->
         <div class="toggle-scene__cord" id="cord">
             <div class="cord-line"></div>
             <div class="cord-handle"></div>
         </div>
 
-        <svg class="bulb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="0" x2="50" y2="20" stroke="#333" stroke-width="3"/>
-            <rect x="42" y="20" width="16" height="10" rx="2" fill="#888" />
-            <path class="bulb__glass" d="M 50 30 C 25 30, 25 70, 50 75 C 75 70, 75 30, 50 30 Z" />
-            <path d="M 45 50 Q 50 40 55 50" fill="none" stroke="#555" stroke-width="2"/>
-        </svg>
     </div>
 
     <script src="script.js"></script>

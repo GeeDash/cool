@@ -2,9 +2,9 @@
     /* Colores en estado apagado */
     --bg-color: #2b303c;
     --bulb-glass: #555c6d;
-    --bulb-glow: transparent;
-    --cord-color: #ffffff;
-    
+    --bulb-glass-stroke: #3a3f4d;
+    --cord-color: #d0d4de;
+
     /* Colores en estado encendido */
     --bg-color-on: #eadeb8;
     --bulb-glass-on: #f5e0a3;
@@ -21,44 +21,95 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #1a1a1a; /* Fondo externo simulando el editor de video */
+    background-color: #1a1a1a;
 }
 
-/* Contenedor principal de la escena */
+/* ── Contenedor principal ── */
 .toggle-scene {
     position: relative;
-    width: 350px;
-    height: 500px;
+    width: 340px;
+    height: 480px;
     background-color: var(--bg-color);
-    border-radius: 12px;
-    overflow: visible !important; /* Mantiene la cuerda visible si sobresale */
+    border-radius: 14px;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 50px;
+    padding-top: 55px;
     transition: background-color 0.4s ease;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
-/* Estilos del Foco SVG */
+/* ── SVG del foco ── */
 .bulb {
-    width: 140px;
-    height: 140px;
+    width: 170px;
+    height: 170px;
     z-index: 2;
+    overflow: visible;
 }
 
+/* Vidrio */
 .bulb__glass {
     fill: var(--bulb-glass);
-    stroke: #1a1a1a;
-    stroke-width: 3;
-    transition: fill 0.4s ease, filter 0.4s ease;
+    stroke: var(--bulb-glass-stroke);
+    stroke-width: 2;
+    transition: fill 0.4s ease, filter 0.4s ease, stroke 0.4s ease;
 }
 
-/* Estilos de la cuerda */
+/* Reflejo especular */
+.bulb__shine {
+    fill: rgba(255, 255, 255, 0.07);
+    pointer-events: none;
+    transition: fill 0.4s ease;
+}
+
+/* Filamento y soporte interno */
+.bulb__stem {
+    stroke: #4a5060;
+    stroke-linecap: round;
+    transition: stroke 0.4s ease;
+}
+
+.bulb__filament {
+    stroke: #4a5060;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.4s ease, filter 0.4s ease;
+}
+
+/* Base metálica */
+.bulb__base {
+    fill: #6b7280;
+    stroke: #4a5060;
+    stroke-width: 1.2;
+    transition: fill 0.4s ease;
+}
+
+/* Líneas de rosca */
+.bulb__thread {
+    stroke: #4a5060;
+    stroke-width: 0.9;
+    stroke-linecap: round;
+}
+
+/* Contacto inferior */
+.bulb__contact {
+    fill: #8a9099;
+    stroke: #4a5060;
+    stroke-width: 0.8;
+    transition: fill 0.4s ease;
+}
+
+/* ── Cuerda del interruptor ── */
+/*
+   El foco (170px) comienza en padding-top: 55px → termina en y ≈ 225px.
+   El contacto es el último elemento del SVG (viewBox y ≈ 100),
+   que en 170px de alto = 170px. Así la cuerda parte de ≈ 220px.
+*/
 .toggle-scene__cord {
     position: absolute;
-    top: 150px; /* Posicionado justo debajo del foco */
+    top: 222px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -66,7 +117,7 @@ body {
     align-items: center;
     cursor: grab;
     z-index: 3;
-    touch-action: none; /* Evita scrolls raros en móviles */
+    touch-action: none;
     transition: transform 0.1s ease;
 }
 
@@ -75,23 +126,25 @@ body {
 }
 
 .cord-line {
-    width: 3px;
-    height: 120px;
+    width: 2px;
+    height: 115px;
     background-color: var(--cord-color);
     transition: background-color 0.4s ease;
 }
 
+/* Forma de gota (teardrop) para el tirador */
 .cord-handle {
-    width: 12px;
-    height: 12px;
+    width: 11px;
+    height: 15px;
     background-color: var(--cord-color);
-    border-radius: 50%;
+    border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
     transition: background-color 0.4s ease;
+    margin-top: -1px; /* pequeño ajuste para que la línea entre al handle */
 }
 
-/* ========================================================
-   ESTADOS CUANDO LA BOMBILLA ESTÁ ENCENDIDA (.is-on)
-   ======================================================== */
+/* ══════════════════════════════════════════════
+   ESTADO ENCENDIDO  (.is-on)
+══════════════════════════════════════════════ */
 
 .toggle-scene.is-on {
     background-color: var(--bg-color-on);
@@ -99,10 +152,28 @@ body {
 
 .toggle-scene.is-on .bulb__glass {
     fill: var(--bulb-glass-on);
-    filter: drop-shadow(0 0 25px rgba(245, 224, 163, 0.8));
+    stroke: #d4b860;
+    filter: drop-shadow(0 0 22px rgba(245, 220, 100, 0.75));
+}
+
+.toggle-scene.is-on .bulb__shine {
+    fill: rgba(255, 255, 255, 0.18);
+}
+
+.toggle-scene.is-on .bulb__filament {
+    stroke: #c8860a;
+    filter: drop-shadow(0 0 4px rgba(255, 200, 50, 0.9));
+}
+
+.toggle-scene.is-on .bulb__stem {
+    stroke: #c8860a;
+}
+
+.toggle-scene.is-on .bulb__base {
+    fill: #8a7c50;
 }
 
 .toggle-scene.is-on .cord-line,
 .toggle-scene.is-on .cord-handle {
-    background-color: #1a1a1a; /* La cuerda se vuelve oscura en el fondo claro */
+    background-color: #4a3e20;
 }
