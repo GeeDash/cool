@@ -101,7 +101,7 @@ Si tienes múltiples versiones de Python instaladas y el sistema no detecta corr
 Ejemplo:
 
 ```text
-GeeDash/
+cool/
 ```
 
 ---
