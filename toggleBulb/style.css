@@ -101,45 +101,42 @@ body {
     transition: fill 0.4s ease;
 }
 
-/* ── Cuerda del interruptor ── */
+/* ── Cuerda del interruptor (SVG) ── */
 /*
-   El foco (170px) comienza en padding-top: 55px → termina en y ≈ 225px.
-   El contacto es el último elemento del SVG (viewBox y ≈ 100),
-   que en 170px de alto = 170px. Así la cuerda parte de ≈ 220px.
+   El foco (170px) empieza en padding-top 55px → su base queda ≈ y 222px.
+   El top="0" del SVG se ancla ahí y el extremo inferior nunca se despega.
 */
 .toggle-scene__cord {
     position: absolute;
     top: 222px;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 40px;
+    height: 145px;
+    overflow: visible;   /* permite que la S-curve salga lateralmente */
     cursor: grab;
     z-index: 3;
     touch-action: none;
-    transition: transform 0.1s ease;
+    /* Sin transition: la animación la maneja JS con rAF */
 }
 
 .toggle-scene__cord:active {
     cursor: grabbing;
 }
 
+/* Trazo de la cuerda */
 .cord-line {
-    width: 2px;
-    height: 115px;
-    background-color: var(--cord-color);
-    transition: background-color 0.4s ease;
+    fill: none;
+    stroke: var(--cord-color);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: stroke 0.4s ease;
 }
 
-/* Forma de gota (teardrop) para el tirador */
+/* Tirador (ellipse SVG) */
 .cord-handle {
-    width: 11px;
-    height: 15px;
-    background-color: var(--cord-color);
-    border-radius: 50% 50% 45% 45% / 55% 55% 45% 45%;
-    transition: background-color 0.4s ease;
-    margin-top: -1px; /* pequeño ajuste para que la línea entre al handle */
+    fill: var(--cord-color);
+    transition: fill 0.4s ease;
 }
 
 /* ══════════════════════════════════════════════
@@ -173,7 +170,10 @@ body {
     fill: #8a7c50;
 }
 
-.toggle-scene.is-on .cord-line,
+.toggle-scene.is-on .cord-line {
+    stroke: #4a3e20;
+}
+
 .toggle-scene.is-on .cord-handle {
-    background-color: #4a3e20;
+    fill: #4a3e20;
 }

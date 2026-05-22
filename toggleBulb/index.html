@@ -47,11 +47,19 @@
             <rect class="bulb__contact" x="43" y="96" width="14" height="4" rx="2"/>
         </svg>
 
-        <!-- Cuerda del interruptor -->
-        <div class="toggle-scene__cord" id="cord">
-            <div class="cord-line"></div>
-            <div class="cord-handle"></div>
-        </div>
+        <!-- Cuerda del interruptor (SVG para animar el path) -->
+        <svg class="toggle-scene__cord" id="cord"
+             viewBox="0 0 40 145"
+             xmlns="http://www.w3.org/2000/svg">
+            <!-- Zona de hit más ancha que el trazo visual -->
+            <rect x="8" y="0" width="24" height="145"
+                  fill="transparent" pointer-events="all"/>
+            <!-- Línea de la cuerda -->
+            <path id="cord-path" class="cord-line" d="M 20 0 L 20 122"/>
+            <!-- Tirador (forma gota) -->
+            <ellipse id="cord-knob" class="cord-handle"
+                     cx="20" cy="131" rx="5.5" ry="7.5"/>
+        </svg>
 
     </div>
 
