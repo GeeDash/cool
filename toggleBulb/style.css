@@ -1,0 +1,108 @@
+:root {
+    /* Colores en estado apagado */
+    --bg-color: #2b303c;
+    --bulb-glass: #555c6d;
+    --bulb-glow: transparent;
+    --cord-color: #ffffff;
+    
+    /* Colores en estado encendido */
+    --bg-color-on: #eadeb8;
+    --bulb-glass-on: #f5e0a3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #1a1a1a; /* Fondo externo simulando el editor de video */
+}
+
+/* Contenedor principal de la escena */
+.toggle-scene {
+    position: relative;
+    width: 350px;
+    height: 500px;
+    background-color: var(--bg-color);
+    border-radius: 12px;
+    overflow: visible !important; /* Mantiene la cuerda visible si sobresale */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 50px;
+    transition: background-color 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Estilos del Foco SVG */
+.bulb {
+    width: 140px;
+    height: 140px;
+    z-index: 2;
+}
+
+.bulb__glass {
+    fill: var(--bulb-glass);
+    stroke: #1a1a1a;
+    stroke-width: 3;
+    transition: fill 0.4s ease, filter 0.4s ease;
+}
+
+/* Estilos de la cuerda */
+.toggle-scene__cord {
+    position: absolute;
+    top: 150px; /* Posicionado justo debajo del foco */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: grab;
+    z-index: 3;
+    touch-action: none; /* Evita scrolls raros en móviles */
+    transition: transform 0.1s ease;
+}
+
+.toggle-scene__cord:active {
+    cursor: grabbing;
+}
+
+.cord-line {
+    width: 3px;
+    height: 120px;
+    background-color: var(--cord-color);
+    transition: background-color 0.4s ease;
+}
+
+.cord-handle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--cord-color);
+    border-radius: 50%;
+    transition: background-color 0.4s ease;
+}
+
+/* ========================================================
+   ESTADOS CUANDO LA BOMBILLA ESTÁ ENCENDIDA (.is-on)
+   ======================================================== */
+
+.toggle-scene.is-on {
+    background-color: var(--bg-color-on);
+}
+
+.toggle-scene.is-on .bulb__glass {
+    fill: var(--bulb-glass-on);
+    filter: drop-shadow(0 0 25px rgba(245, 224, 163, 0.8));
+}
+
+.toggle-scene.is-on .cord-line,
+.toggle-scene.is-on .cord-handle {
+    background-color: #1a1a1a; /* La cuerda se vuelve oscura en el fondo claro */
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Bulb</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="toggle-scene">
+        <div class="toggle-scene__cord" id="cord">
+            <div class="cord-line"></div>
+            <div class="cord-handle"></div>
+        </div>
+
+        <svg class="bulb" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <line x1="50" y1="0" x2="50" y2="20" stroke="#333" stroke-width="3"/>
+            <rect x="42" y="20" width="16" height="10" rx="2" fill="#888" />
+            <path class="bulb__glass" d="M 50 30 C 25 30, 25 70, 50 75 C 75 70, 75 30, 50 30 Z" />
+            <path d="M 45 50 Q 50 40 55 50" fill="none" stroke="#555" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
