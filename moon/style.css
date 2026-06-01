@@ -1,0 +1,72 @@
+/* RESET */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* PANTALLA */
+body{
+    background:#000;
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* CONTENEDOR */
+.container{
+    position:relative;
+    width:250px;
+    height:250px;
+}
+
+/* SOL */
+.sun{
+    position:absolute;
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+    background:white;
+
+    box-shadow:
+        0 0 15px rgba(255,255,255,.8),
+        0 0 35px rgba(255,255,255,.5),
+        0 0 80px rgba(255,255,255,.25);
+}
+
+/* LUNA */
+.moon{
+    position:absolute;
+    width:250px;
+    height:250px;
+
+    border-radius:50%;
+    background:black;
+
+    animation:eclipse 3.5s ease-in-out infinite alternate;
+}
+
+/* ANIMACIÓN */
+@keyframes eclipse{
+
+    /* Luna a la derecha */
+    0%{
+        transform:translateX(130px);
+    }
+
+    /* Eclipse total */
+    50%{
+        transform:translateX(0);
+    }
+
+    /* Luna a la izquierda */
+    100%{
+        transform:translateX(-130px);
+    }
+}
