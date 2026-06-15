@@ -116,16 +116,6 @@ Si tienes ideas para efectos visuales, animaciones o proyectos experimentales, p
 
 ---
 
-## 🔗 Sígueme
-
-Si te gustan estos proyectos, puedes seguirme para ver nuevas publicaciones y experimentos visuales.
-
-GitHub: **TU_GITHUB**
-
-TikTok: **TU_TIKTOK**
-
----
-
 # 🖤 Proyecto COOL
 
 > Código que probablemente no necesitabas...
